@@ -1,0 +1,928 @@
+{
+	"info": {
+		"_postman_id": "40e20a61-694a-42b9-8fec-10366379845b",
+		"name": "RentalCarService Master",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Register Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"monica.admin@sjsu.edu\",\n    \"password\": \"monica\",\n    \"firstName\": \"Moni\",\n    \"lastName\": \"Admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/admin/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Admin",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4f60a9cf-ec5e-40bd-b919-f6fc175b6470",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb25pLmRAZ21haWwuY29tIiwicm9sZXMiOiJ1c2VyIiwiaWF0IjoxNTg4MzE0NTM0fQ.alkiAle0RXKmWwY-i3LWO66qJWsmVXh5SxYWIUAw5dQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"monica.admin@sjsu.edu\",\n\t\"password\": \"monica\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/admin/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ApproveUser",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "3e20f042-dab7-4486-af0d-3546826cdf1b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb25pY2EuYWRtaW5Ac2pzdS5lZHUiLCJyb2xlcyI6ImFkbWluIiwiaWF0IjoxNTg4NTU0NTk1fQ.mk6GtSVSpUGI5LDavsVnA2rLSByrQGGTFXyG7M207Yc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/admin/approve?email=monica.dommaraju@gmail.com",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"admin",
+								"approve"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "monica.dommaraju@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllUsers (By Active Status)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "bf4b8955-2fe8-48da-8917-c3bbb7306852",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb25pY2EuYWRtaW5Ac2pzdS5lZHUiLCJyb2xlcyI6ImFkbWluIiwiaWF0IjoxNTg4NTU3MDY1fQ.sOr--Hap6-FoBubD5HDopDyIrqx9QpCKYYb2YShTQGc",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/admin/getAllUsers?isActive=false",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"admin",
+								"getAllUsers"
+							],
+							"query": [
+								{
+									"key": "isActive",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Vehicle Type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"vehicleType\": \"suv\",\n    \"hourlyPrice\": 45.0,\n    \"lateReturnFee\": 500.0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/admin/saveVehicleType",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"admin",
+								"saveVehicleType"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Rental Location",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb25pLmRAZ21haWwuY29tIiwicm9sZXMiOiJ1c2VyIiwiaWF0IjoxNTg4MzE4MDI3fQ.vcujcFnUs9llIUW5t07KXDv_GGqUoj9g3v9fI0PCfcg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"locationName\": \"GoF-Rent-A-Car Mountain View\",\n\t\"address\":{\n\t\t\"streetName\": \"100 El Camino Real\",\n\t\t\"city\": \"Mountain View\",\n\t\t\"state\": \"California\",\n\t\t\"zipCode\": 94040\n\t},\n\t\"vehicleCapacity\": 30\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/admin/saveRentalLocation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"admin",
+								"saveRentalLocation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Vehicle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"vehicleTypeId\": \"49db6053-e6bd-4c39-b9d5-b08fdeb76450\",\n    \"make\": \"mercedes\",\n    \"model\": \"minibus\",\n    \"year\": 2016,\n    \"registrationTag\": \"QWPLK2\",\n    \"currentMileage\": 15034.6,\n    \"vehicleCondition\": \"EXCELLENT\",\n    \"rentalLocationId\": \"7031400d-7539-479f-993e-5b27768ece02\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/admin/saveVehicle",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"admin",
+								"saveVehicle"
+							]
+						},
+						"description": "New Vehicle Type\nNew Rental Location"
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb25pY2EuYWRtaW5Ac2pzdS5lZHUiLCJyb2xlcyI6ImFkbWluIiwiaWF0IjoxNTg4NTU0NTk1fQ.mk6GtSVSpUGI5LDavsVnA2rLSByrQGGTFXyG7M207Yc",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "eafec417-cb43-42a4-b5a9-f665cab50d2f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d4dada61-4ba4-4a3f-bb45-abee7cd47833",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"monica.dommaraju@gmail.com\",\n    \"password\": \"monica\",\n    \"firstName\": \"Moni\",\n    \"lastName\": \"D\",\n    \"age\": 25,\n    \"address\": {\n        \"streetName\": \"825 E Evelyn Ave\",\n        \"city\": \"Sunnyvale\",\n        \"state\": \"California\",\n        \"zipCode\": 94040\n    },\n    \"license\": {\n        \"licenseId\": \"123456\",\n        \"expiry\": \"2022-09-29\",\n        \"type\": \"Motor\",\n        \"stateOfIssue\": \"CA\"\n    },\n    \"card\": {\n        \"cardNumber\": \"123123123123123\",\n        \"dateOfIssue\": \"2018-09-29\",\n        \"expiryDate\": \"2020-09-29\",\n        \"name\": \"Monica\",\n        \"cvv\": \"123\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "1d4bc41f-ec05-4350-9445-4ff9a587de05",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"monica.dommaraju@gmail.com\",\n\t\"password\": \"monica\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f4084f13-90fc-4761-bcc5-6e6080c0d8ba",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb25pY2EuZG9tbWFyYWp1QGdtYWlsLmNvbSIsInJvbGVzIjoidXNlciIsImlhdCI6MTU4ODU1NDYxMH0.rGN0V9xfdinmAzMqyeIsDUdVz3fVq6OE7ss4pZLSBGk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/user/getUser",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"getUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modify User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb25pY2EuZG9tbWFyYWp1QGdtYWlsLmNvbSIsInJvbGVzIjoidXNlciIsImlhdCI6MTU4ODU1NDYxMH0.rGN0V9xfdinmAzMqyeIsDUdVz3fVq6OE7ss4pZLSBGk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"phone\": \"9195921231\",\n    \"address\": {\n        \"streetName\": \"825 E Evelyn Ave\",\n        \"city\": \"Sunnyvale\",\n        \"state\": \"California\",\n        \"zipCode\": 94040\n    },\n    \"license\": {\n        \"expiry\": \"2022-09-29\"\n    },\n    \"card\": {\n        \"expiryDate\": \"2020-09-29\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/user/modify",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"modify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Vehicle Types",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb25pLmRAZ21haWwuY29tIiwicm9sZXMiOiJ1c2VyIiwiaWF0IjoxNTg4MzE4MDI3fQ.vcujcFnUs9llIUW5t07KXDv_GGqUoj9g3v9fI0PCfcg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/user/getAllVehicleType",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"getAllVehicleType"
+							]
+						},
+						"description": "Get Vehicle Type"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Rental Location",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb25pLmRAZ21haWwuY29tIiwicm9sZXMiOiJ1c2VyIiwiaWF0IjoxNTg4MzE4MDI3fQ.vcujcFnUs9llIUW5t07KXDv_GGqUoj9g3v9fI0PCfcg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/user/getAllRentalLocation",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"getAllRentalLocation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Vehicle",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb25pLmRAZ21haWwuY29tIiwicm9sZXMiOiJ1c2VyIiwiaWF0IjoxNTg4MzE4MDI3fQ.vcujcFnUs9llIUW5t07KXDv_GGqUoj9g3v9fI0PCfcg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/user/getAllVehicle",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"getAllVehicle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vehicles (All, By LocationId, By VehicleTypeId)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb25pLmRAZ21haWwuY29tIiwicm9sZXMiOiJ1c2VyIiwiaWF0IjoxNTg4MzE4MDI3fQ.vcujcFnUs9llIUW5t07KXDv_GGqUoj9g3v9fI0PCfcg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/user/getVehicles?vehicleType=82",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"getVehicles"
+							],
+							"query": [
+								{
+									"key": "vehicleType",
+									"value": "82"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Vehicle Availability",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb25pLmRAZ21haWwuY29tIiwicm9sZXMiOiJ1c2VyIiwiaWF0IjoxNTg4MzE4MDI3fQ.vcujcFnUs9llIUW5t07KXDv_GGqUoj9g3v9fI0PCfcg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/user/checkAvailability?vehicleId=6108",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"checkAvailability"
+							],
+							"query": [
+								{
+									"key": "vehicleId",
+									"value": "6108"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Vehicle Availability By DateTime",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb25pLmRAZ21haWwuY29tIiwicm9sZXMiOiJ1c2VyIiwiaWF0IjoxNTg4MzE4MDI3fQ.vcujcFnUs9llIUW5t07KXDv_GGqUoj9g3v9fI0PCfcg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/user/checkAvailabilityDateTime?vehicleId=6108",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"checkAvailabilityDateTime"
+							],
+							"query": [
+								{
+									"key": "vehicleId",
+									"value": "6108"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Reservation for User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb25pLmRAZ21haWwuY29tIiwicm9sZXMiOiJ1c2VyIiwiaWF0IjoxNTg4MzE4MDI3fQ.vcujcFnUs9llIUW5t07KXDv_GGqUoj9g3v9fI0PCfcg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/user/getReservations?status=RESERVED",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"getReservations"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "RESERVED"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reserve Vehicle",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb25pLmRAZ21haWwuY29tIiwicm9sZXMiOiJ1c2VyIiwiaWF0IjoxNTg4MzE4MDI3fQ.vcujcFnUs9llIUW5t07KXDv_GGqUoj9g3v9fI0PCfcg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"vehicleId\": 6108,\n\t\"fromTime\": 1588509301182,\n\t\"durationHours\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/user/reserveVehicle",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"reserveVehicle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Reservation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb25pLmRAZ21haWwuY29tIiwicm9sZXMiOiJ1c2VyIiwiaWF0IjoxNTg4MzE4MDI3fQ.vcujcFnUs9llIUW5t07KXDv_GGqUoj9g3v9fI0PCfcg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/user/cancelReservation?id=5ffb748f-0e41-4657-9b40-4cac36e7c9a7",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"cancelReservation"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5ffb748f-0e41-4657-9b40-4cac36e7c9a7"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Return Vehicle",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb25pLmRAZ21haWwuY29tIiwicm9sZXMiOiJ1c2VyIiwiaWF0IjoxNTg4MzE4MDI3fQ.vcujcFnUs9llIUW5t07KXDv_GGqUoj9g3v9fI0PCfcg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/user/returnVehicle?reservationId=3f85eb7e-7b5b-4a2f-9497-8dfadec8794a",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"returnVehicle"
+							],
+							"query": [
+								{
+									"key": "reservationId",
+									"value": "3f85eb7e-7b5b-4a2f-9497-8dfadec8794a"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb25pY2EuZG9tbWFyYWp1QGdtYWlsLmNvbSIsInJvbGVzIjoidXNlciIsImlhdCI6MTU4ODU1NDYxMH0.rGN0V9xfdinmAzMqyeIsDUdVz3fVq6OE7ss4pZLSBGk",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6a4ab499-bdc4-4bde-8fc5-9da4ddb30ccd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "82e3b4a2-0d45-47e4-bddb-9ccc75b29ad4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJtb25pY2EuZG9tbWFyYWp1QGdtYWlsLmNvbSIsInJvbGVzIjoidXNlciIsImlhdCI6MTU4ODQ5NTMwMH0.dc8nFZI-42bnDPvuRT9yobvr3itGwhkhfFUoUIQelkM",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "cc667dd3-1411-4b00-9f3d-53518644921b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7f39786f-367f-42f1-b90b-3ab22fa21062",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
